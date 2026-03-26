@@ -5,14 +5,14 @@ touch log.txt
 for i in $(seq 1 365); do
   DATE_STR=$(date -d "$i days ago" +"%Y-%m-%d")
   
-  # 25% chance - din skip
+  # 25% chance - skip one random day
   SKIP=$((RANDOM % 4))
   if [ $SKIP -eq 0 ]; then
     continue
   fi
 
-  # Har din alag commits - 1 se 12 ke beech
-  NUM_COMMITS=$((RANDOM % 12 + 1))
+  # Random 5-7 commits per selected day
+  NUM_COMMITS=$((RANDOM % 3 + 5))
 
   for j in $(seq 1 $NUM_COMMITS); do
     HOUR=$((RANDOM % 14 + 9))
